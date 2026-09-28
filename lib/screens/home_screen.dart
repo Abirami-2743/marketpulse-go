@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import '../providers/market_provider.dart';
 import 'dashboard_screen.dart';
+import 'ranking_screen.dart';
 import 'agent_chat_screen.dart';
 import 'watchlist_screen.dart';
 import 'settings_screen.dart';
@@ -19,9 +20,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _index = 0;
 
-  static const _titles = ["Dashboard", "Watchlist", "AI Agent", "Settings"];
+  static const _titles = ["Dashboard", "Ranking", "Watchlist", "AI Agent", "Settings"];
   static const _screens = [
     DashboardScreen(),
+    RankingScreen(),
     WatchlistScreen(),
     AgentChatScreen(),
     SettingsScreen(),
@@ -71,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onDestinationSelected: (i) => setState(() => _index = i),
         destinations: const [
           NavigationDestination(icon: Icon(Icons.dashboard_outlined), selectedIcon: Icon(Icons.dashboard), label: "Dashboard"),
+          NavigationDestination(icon: Icon(Icons.leaderboard_outlined), selectedIcon: Icon(Icons.leaderboard), label: "Ranking"),
           NavigationDestination(icon: Icon(Icons.star_outline_rounded), selectedIcon: Icon(Icons.star_rounded), label: "Watchlist"),
           NavigationDestination(icon: Icon(Icons.smart_toy_outlined), selectedIcon: Icon(Icons.smart_toy), label: "AI Agent"),
           NavigationDestination(icon: Icon(Icons.settings_outlined), selectedIcon: Icon(Icons.settings), label: "Settings"),
